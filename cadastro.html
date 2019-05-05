@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Cadastro na plataforma - UTFPR - Atividade Complementar</title>
+        <meta name="description" content="Página para o cadastro na plataforma de gerenciamento de atividade complementar" />
+        <meta name="keyboards" content="UTFPR, Atividade, Complementar" />
+
+        <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+
+        <!-- For Mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="./style/style.css">
+    </head>
+
+    <body class="bg-warning ">
+
+        <div class="container card shadow mt-5 p-5 col-11 col-sm-7 col-md-6">
+
+            <form class="form" action="algumacoisa.php">
+                <h1>Cadastro</h1>
+                <div class="form-group">
+                    <label class="control-label">Email </label>
+                    <input type="email" class="form-control" placeholder="Digite o email..." id="email">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Senha </label>
+                    <input class="form-control" type="password" placeholder="Digite sua Senha..." id="password">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Confirmação de Senha </label>
+                    <input class="form-control" type="password" placeholder="Digite sua Senha novamente..." id="password_aux">
+                </div>
+                <select name="curso" class="form-group custom-select">
+                    <option selected>Selecione o Curso</option>
+                    <option name="Eng_Computacao">Engenharia de Computação</option>
+                    <option name="Eng_Eletrica">Engenharia Elétrica</option>
+                    <option name="Eng_Mecacnica">Engenharia Mecânica</option>
+                    <option name="aaahhh">Opções a serem adicionadas</option>
+                </select>
+
+                <button type="" class="btn btn-warning">Enviar</button>
+            </form>
+
+        </div>
+
+    </body>
+
+</html>
