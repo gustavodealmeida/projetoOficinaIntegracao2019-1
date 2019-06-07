@@ -31,19 +31,19 @@
 
         <div class="container card shadow mt-5 p-5 col-11 col-sm-7 col-md-6">
 
-            <form class="form" action="algumacoisa.php">
+            <form class="form" method="POST" action="cadastro.php">
                 <h1>Cadastro</h1>
                 <div class="form-group">
                     <label class="control-label">Email </label>
-                    <input type="email" class="form-control" placeholder="Digite o email..." id="email">
+                    <input type="email" class="form-control" placeholder="Digite o email..." name="email" id="email">
                 </div>
                 <div class="form-group">
                     <label class="control-label">Senha </label>
-                    <input class="form-control" type="password" placeholder="Digite sua Senha..." id="password">
+                    <input class="form-control" type="password" placeholder="Digite sua Senha..." name="password" id="password">
                 </div>
                 <div class="form-group">
                     <label class="control-label">Confirmação de Senha </label>
-                    <input class="form-control" type="password" placeholder="Digite sua Senha novamente..." id="password_aux">
+                    <input class="form-control" type="password" placeholder="Digite sua Senha novamente..." name="password_aux" id="password_aux">
                 </div>
                 <select name="curso" class="form-group custom-select">
                     <option selected>Selecione o Curso</option>
