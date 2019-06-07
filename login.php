@@ -22,28 +22,32 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </head>
-
-    <body class="bg-warning ">
-
-        <div class="container card shadow mt-5 p-5 col-11 col-sm-7 col-md-6">
-
-            <form class="form" method="POST" action="login.php">
-                <h1>Login</h1>
-                <div class="form-group">
-                    <label class="control-label">Email </label>
-                    <input type="email" class="form-control" placeholder="Digite o email..." name="email" id="email" />
-
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Senha </label>
-                    <input class="form-control" type="password" placeholder="Digite sua Senha..." name="password" id="password" />
-                </div>
-                <button type="" class="btn btn-warning">Enviar</button>
-                <a class="d-block" href="cadastro.html">Não possui cadastro ainda? Cadastre-se.</a>
-            </form>
-
-        </div>
-
+	
+	<body class="bg-warning ">
+	
+	<?
+		include "conecta_banco.php";
+		
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		
+		//echo "select * from usuario where email = '".$_POST['email']."' and senha = '".$password."'";
+		
+		$res = $mysqli->query("select * from usuario where email = '".$email."' and senha = MD5('".$password."')");
+		
+		if ($res->num_rows == 0)
+		{
+			echo "<br><br>Usuário ou senha incorretos. Voltando para a página inicial em 3 segundos.";
+			header("refresh: 3; url=http://calculadoraac.epizy.com");
+		}
+		else
+		{
+			echo "Logado!";
+		}
+	
+		$mysqli->close();
+	?>
+	
     </body>
 
 </html>
