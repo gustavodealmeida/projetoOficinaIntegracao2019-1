@@ -9,6 +9,8 @@
 
         <meta http-equiv="content-type" content="text/html" charset="UTF-8">
 
+        <link rel="shortcut icon" href="image/favicon.ico" />
+
         <!-- For Mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -36,7 +38,11 @@
                 <label class="control-label">Arquivo da Atividade </label>
                 <div class="custom-file mb-3">
                     <input type="file" class="custom-file-input" id="atividadeFile" name="filename">
-                    <label class="custom-file-label" for="atividadeFile">Escolha o arquivo</label>
+                    <label class="custom-file-label col-7" for="atividadeFile">Escolha o arquivo</label>
+                </div>
+                <div class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" class="custom-control-input" id="customCheck" name="arq_atividadeComplementar">
+                    <label class="custom-control-label" for="customCheck">Enviar certificado depois</label>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Nome para o arquivo </label>
@@ -48,6 +54,7 @@
                     <option name="Grupo_01">Grupo 01</option>
                     <option name="Grupo_02">Grupo 02</option>
                     <option name="Grupo_03">Grupo 03</option>
+                    <option name="add_depois">Adicionar Depois</option>
                 </select>
                 <label class="control-label">Tipo de atividade </label>
                 <select name="tipo" class="form-group custom-select">

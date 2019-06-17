@@ -9,6 +9,8 @@
 
         <meta http-equiv="content-type" content="text/html" charset="UTF-8">
 
+        <link rel="shortcut icon" href="image/favicon.ico" />
+
         <!-- For Mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,34 +31,59 @@
 
     <body class="bg-warning ">
 
-        <div class="container card shadow mt-5 p-5 col-11 col-sm-7 col-md-6">
+        <div class="container mt-3 mb-5 col-11 col-sm-7 col-md-6">
+            <div class="text-center">
+                <a href="#">
+                    <img class="img-fluid" class="rounded" src="./image/CAC-Logo.svg" alt="Logo" width="175px" />
+                </a>
+            </div>
 
-            <form class="form" method="POST" action="cadastro.php">
-                <h1>Cadastro</h1>
-                <div class="form-group">
-                    <label class="control-label">Email </label>
-                    <input type="email" class="form-control" placeholder="Digite o email..." name="email" id="email">
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Senha </label>
-                    <input class="form-control" type="password" placeholder="Digite sua Senha..." name="password" id="password">
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Confirmação de Senha </label>
-                    <input class="form-control" type="password" placeholder="Digite sua Senha novamente..." name="password_aux" id="password_aux">
-                </div>
-                <select name="curso" class="form-group custom-select">
-                    <option selected>Selecione o Curso</option>
-                    <option name="Eng_Computacao">Engenharia de Computação</option>
-                    <option name="Eng_Eletrica">Engenharia Elétrica</option>
-                    <option name="Eng_Mecacnica">Engenharia Mecânica</option>
-                    <option name="aaahhh">Opções a serem adicionadas</option>
-                </select>
-
-                <button type="" class="btn btn-warning">Enviar</button>
-            </form>
-
+            <div class="container card shadow mt-3 p-5">
+            
+                <form class="form" method="POST" action="cadastro.php">
+                    <h1>Cadastro</h1>
+                    <div class="form-group">
+                        <label class="control-label">Email </label>
+                        <input type="email" class="form-control" placeholder="Digite o email..." name="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Senha </label>
+                        <input class="form-control" type="password" placeholder="Digite sua Senha..." name="password" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Confirmação de Senha </label>
+                        <input class="form-control" type="password" placeholder="Digite sua Senha novamente..." name="password_aux"
+                            id="password_aux">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Curso </label>
+                        <select name="curso" class="form-group custom-select">
+                            <option selected>Selecione o Curso</option>
+                            <option name="Eng_Computacao">Engenharia de Computação</option>
+                            <option name="Eng_Software">Engenharia de Software</option>
+                            <option name="Eng_Eletrica">Engenharia Elétrica</option>
+                            <option name="Eng_Mecacnica">Engenharia Mecânica</option>
+                            <option name="Eng_ControleAutomacao">Engenharia de Controle e Automação</option>
+                            <option name="ADS">ADS - Análise e Desnevolvimento de Sitemas</option>
+                            <option name="Matematica">Licenciatura em Matemática</option>
+                        </select>
+                    </div>
+            
+            
+                    <?php 
+                                if(isset($_SESSION['msg'])){
+                                    echo $_SESSION['msg'];
+                                    unset ($_SESSION['msg']);
+                                }
+                            ?>
+            
+                    <button type="" class="btn btn-warning">Cadastrar</button>
+                </form>
+            
+            </div>
         </div>
+
+        
 
     </body>
 

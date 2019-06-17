@@ -36,8 +36,19 @@
             </div>
 
             <div class="container card shadow mt-3 mb-3 p-5 ">
+                <h1>Login</h1>
+                <?php 
+                    if(session_status() !== PHP_SESSION_ACTIVE){
+			            session_start();
+                    }
+                                $email = "";
+                                if(isset($_SESSION['msg'])){
+                                    echo $_SESSION['msg'];
+                                    unset($_SESSION['msg']);
+                                }
+                ?>
                 <form class="form" method="POST" action="login.php">
-                    <h1>Login</h1>
+                    
                     <div class="form-group">
                         <label class="control-label">Email </label>
                         <input type="email" class="form-control" placeholder="Digite o email..." name="email"
@@ -54,7 +65,7 @@
                         <button type="" class="btn btn-warning">Entrar</button>
                     </div>
 
-                    <a class="d-block" href="cadastro.html">Não possui cadastro ainda? Cadastre-se.</a>
+                    <a class="d-block" href="cadastro.php">Não possui cadastro ainda? Cadastre-se.</a>
                 </form>
 
             </div>

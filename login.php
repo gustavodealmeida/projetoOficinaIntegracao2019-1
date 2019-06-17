@@ -1,53 +1,33 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <title>UTFPR - Atividade Complementar</title>
-        <meta name="description" content="Página principal da plataforma de gerencimento de Atividade Complementar" />
-        <meta name="keyboards" content="UTFPR, Atividade, Complementar" />
 
-        <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+	<?php
+	include "conecta_banco.php";
+	if (session_status() !== PHP_SESSION_ACTIVE) {
+		session_name("Agora_Vai");
+		session_start();
+	}
 
-        <!-- For Mobile -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	$email = $_POST['email'];
+	$password = $_POST['password'];
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	//echo "select * from usuario where email = '".$_POST['email']."' and senha = '".$password."'";
 
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	$res = $mysqli->query("select * from usuario where email = '" . $email . "' and senha = MD5('" . $password . "')");
 
-        <!-- Popper JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    </head>
-	
-	<body class="bg-warning ">
-	
-	<?
-		include "conecta_banco.php";
-		
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-		
-		//echo "select * from usuario where email = '".$_POST['email']."' and senha = '".$password."'";
-		
-		$res = $mysqli->query("select * from usuario where email = '".$email."' and senha = MD5('".$password."')");
-		
-		if ($res->num_rows == 0)
-		{
-			echo "<br><br>Usuário ou senha incorretos. Voltando para a página inicial em 3 segundos.";
-			header("refresh: 3; url=http://calculadoraac.epizy.com");
+	if ($res->num_rows == 0) {
+		$_SESSION['msg'] = "<div class='alert alert-danger'> <strong>E-mail</strong> ou <strong>senha</strong> incorretos.</div>";
+		header("Location: index.php");
+		//echo "<br><br>Usuário ou senha incorretos. Voltando para a página inicial em 3 segundos.";
+		//header("refresh: 3; url=http://calculadoraac.epizy.com");
+	} else {
+		while ($row = mysqli_fetch_object($res)){
+			$_SESSION['name'] = $row->nome;
+			$_SESSION['periodo'] = $row->periodo;
+			$_SESSION['curso'] = $row->curso;
 		}
-		else
-		{
-			echo "Logado!";
-		}
-	
-		$mysqli->close();
+
+		//$_SESSION['name'] = ($res->fetch_array)['nome'];
+		header("Location: menu.php");
+	}
+
+	$mysqli->close();
 	?>
-	
-    </body>
-
-</html>
